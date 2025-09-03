@@ -11,11 +11,11 @@ M.setup = function(theme, opts)
         ["LazyCommit"] = { fg = theme.syn.special1, bg = theme.ui.bg },
         ["LazyCommitType"] = { fg = theme.syn.constant, bg = theme.ui.bg },
         ["LazyButton"] = { fg = theme.ui.fg, bg = theme.ui.bg },
-        ["LazyButtonActive"] = { fg = theme.ui.fg, bg = theme.ui.statusline },
+        ["LazyButtonActive"] = { fg = theme.ui.fg, bg = theme.ui.search },
         ["LazyH1"] = { fg = theme.syn.operator, bg = theme.ui.bg },
         ["LazyProgressDone"] = { fg = theme.syn.string, bg = theme.ui.bg },
         ["LazyProgressTodo"] = { fg = theme.syn.constant, bg = theme.ui.bg },
-        ["LazySpecial"] = { fg = theme.diag.info, bg = theme.ui.bg },
+        ["LazySpecial"] = { fg = theme.ui.dir, bg = "NONE" },
         ["LazyReasonCommand"] = { fg = theme.diag.info, bg = theme.ui.bg },
         ["LazyReasonEvent"] = { fg = theme.ui.fg, bg = theme.ui.bg },
         ["LazyReasonFt"] = { fg = theme.ui.fg, bg = theme.ui.bg },
@@ -68,6 +68,10 @@ M.setup = function(theme, opts)
         -- Eyeliner
         ["EyelinerPrimary"] = { fg = theme.ui.selection, bold = true, underline = true },
         ["EyelinerSecondary"] = { fg = theme.syn.special2, underline = true },
+
+        -- Showkeys
+        ["SkInactive"] = { link = "Pmenu" },
+        ["SkActive"] = { link = "Statusline" },
 
         -- LSP
         ["DiagnosticOk"] = { fg = theme.diag.info, bg = "NONE" },

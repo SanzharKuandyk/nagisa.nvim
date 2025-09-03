@@ -18,7 +18,7 @@ nagisa.load = function(theme_name)
     local utils = require("nagisa.utils")
 
     vim.cmd("hi clear")
-    if vim.fn.exists("syntax_on") then
+    if vim.fn.exists("syntax_on") == 1 then
         vim.cmd("syntax reset")
     end
 
@@ -51,14 +51,18 @@ function nagisa.get_theme()
     return themes.setup(colors)[nagisa.state.theme]()
 end
 
+-- User command to recompile
 vim.api.nvim_create_user_command("NagisaCompile", function()
+    -- unload nagisa modules (including config) so globals are re-read
     for mod, _ in pairs(package.loaded) do
         if mod:match("^nagisa%.") then
             package.loaded[mod] = nil
         end
     end
 
+    nagisa.setup()
     nagisa.compile()
+
     vim.notify("Nagisa compiled successfully!", vim.log.levels.INFO)
     nagisa.load(nagisa.state.theme)
     vim.api.nvim_exec_autocmds("ColorScheme", { modeline = false })
