@@ -50,6 +50,29 @@ vim.cmd.colorscheme("EndOfTheWorld")
 :NagisaCompile
 ```
 
+## ⚙️ Configuration
+
+```lua
+require("nagisa").setup({
+  theme = "EndOfTheWorld",
+  transparent = false,
+  italic_comments = true,
+  underline_links = true,
+  disable_nvimtree_bg = false,
+  color_overrides = {
+    blue = "#00A1D6",
+    green = "#00FF88",
+    back = "#121212",
+  },
+  group_overrides = {
+    Comment = { fg = "#BBBBBB", style = "italic" },
+    CursorLine = { bg = "#1A1A1A" },
+    NvimTreeFolderIcon = { fg = "#F0E100" },
+    DiagnosticError = { fg = "#FF5555", style = "bold" },
+  },
+})
+```
+
 ## Acknowledgements
 
 - [Kanagawa](https://github.com/rebelot/kanagawa.nvim) - The project structure was inspired by this theme. Since nagisa theme is under lazy development, it is suggested to try out.

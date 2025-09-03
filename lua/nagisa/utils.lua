@@ -52,16 +52,20 @@ end
 ---@param colors Colors
 function M.compile(theme_name, opts, colors)
     local themes = require("nagisa.themes")
-    local theme_data = themes.setup(colors)[theme_name]
 
+    if opts.color_overrides and next(opts.color_overrides) then
+        for k, v in pairs(opts.color_overrides) do
+            colors[k] = v
+        end
+    end
+
+    local theme_data = themes.setup(colors)[theme_name]
     if not theme_data then
         error(("Theme '%s' not found in themes.lua"):format(theme_name))
     end
 
-    -- Load highlights with theme data and options
     local highlights = require("nagisa.highlights").setup(theme_data(), opts)
 
-    -- Save compiled highlights
     local path = get_compiled_path(theme_name)
     save_compiled_highlights(path, highlights)
 end

@@ -2,19 +2,15 @@ local nagisa = {}
 local config = require("nagisa.config")
 
 nagisa.state = {
-    opts = {},
     theme = nil,
 }
 
----@param opts NagisaConfig
-nagisa.setup = function(opts)
-    config.setup(opts)
-    nagisa.state.opts = config.opts
-    nagisa.state.theme = config.opts.theme
+function nagisa.setup(opts)
+    local merged = config.setup(opts)
+    nagisa.state.theme = merged.theme
 end
 
----@param theme_name? string
-nagisa.load = function(theme_name)
+function nagisa.load(theme_name)
     local utils = require("nagisa.utils")
 
     vim.cmd("hi clear")
@@ -24,7 +20,7 @@ nagisa.load = function(theme_name)
 
     vim.o.termguicolors = true
 
-    nagisa.state.theme = theme_name or nagisa.state.opts.theme
+    nagisa.state.theme = theme_name or config.opts.theme
 
     if not utils.load_compiled(nagisa.state.theme) then
         nagisa.compile()
@@ -36,12 +32,12 @@ function nagisa.compile()
     local utils = require("nagisa.utils")
     local colors = require("nagisa.colors")
 
-    utils.compile(nagisa.state.theme, nagisa.state.opts, colors)
+    utils.compile(nagisa.state.theme, config.opts, colors)
 end
 
 ---@return NagisaConfig
 function nagisa.get_opts()
-    return nagisa.state.opts
+    return config.opts
 end
 
 ---@return Theme
@@ -53,18 +49,17 @@ end
 
 -- User command to recompile
 vim.api.nvim_create_user_command("NagisaCompile", function()
-    -- unload nagisa modules (including config) so globals are re-read
-    for mod, _ in pairs(package.loaded) do
-        if mod:match("^nagisa%.") then
+    for mod in pairs(package.loaded) do
+        if mod:match("^nagisa") then
             package.loaded[mod] = nil
         end
     end
 
-    nagisa.setup()
-    nagisa.compile()
-
+    local fresh = require("nagisa")
+    fresh.setup(config.opts)
+    fresh.compile()
     vim.notify("Nagisa compiled successfully!", vim.log.levels.INFO)
-    nagisa.load(nagisa.state.theme)
+    fresh.load(fresh.state.theme)
     vim.api.nvim_exec_autocmds("ColorScheme", { modeline = false })
 end, {})
 
