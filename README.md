@@ -28,7 +28,13 @@ use("sanzharkuandyk/nagisa.nvim")
 ```lua
 {
   "sanzharkuandyk/nagisa.nvim",
-}
+  lazy = false,
+  priority = 1000,
+  config = function()
+      require("nagisa").setup({})
+      vim.cmd.colorscheme("EndOfTheWorld")
+  end,
+},
 ```
 
 ### Colorscheme
