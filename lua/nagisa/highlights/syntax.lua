@@ -2,7 +2,7 @@ local M = {}
 
 ---@param theme Theme
 ---@return table highlights
-M.setup = function(theme, opts)
+function M.setup(theme, opts)
     opts = opts or require("nagisa.config").opts
     return {
         -- Syntax

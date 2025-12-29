@@ -5,6 +5,15 @@ nagisa.state = {
     theme = nil,
 }
 
+local function validate_theme(theme_name)
+    local themes = require("nagisa.themes")
+    local colors = require("nagisa.colors")
+    if not themes.setup(colors)[theme_name] then
+        error(string.format("Invalid theme '%s'. Available: EndOfTheWorld", theme_name))
+    end
+    return theme_name
+end
+
 function nagisa.setup(opts)
     local merged = config.setup(opts)
     nagisa.state.theme = merged.theme
@@ -20,7 +29,7 @@ function nagisa.load(theme_name)
 
     vim.o.termguicolors = true
 
-    nagisa.state.theme = theme_name or config.opts.theme
+    nagisa.state.theme = validate_theme(theme_name or config.opts.theme)
 
     if not utils.load_compiled(nagisa.state.theme) then
         nagisa.compile()

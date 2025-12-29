@@ -25,12 +25,19 @@ config.opts = vim.deepcopy(defaults)
 
 ---@param user_opts? NagisaConfig
 function config.setup(user_opts)
+    local function to_bool(value, default)
+        if value == nil then
+            return default
+        end
+        return value == true or value == 1 or value == "1"
+    end
+
     local global_settings = {
         theme = vim.g.nagisa_theme or defaults.theme,
         transparent = vim.g.nagisa_transparent or defaults.transparent,
-        italic_comments = (vim.g.nagisa_italic_comment == true or vim.g.nagisa_italic_comment == 1),
-        underline_links = (vim.g.nagisa_underline_links == true or vim.g.nagisa_underline_links == 1),
-        disable_nvimtree_bg = (vim.g.nagisa_disable_nvim_tree_bg == true or vim.g.nagisa_disable_nvim_tree_bg == 1),
+        italic_comments = to_bool(vim.g.nagisa_italic_comment, defaults.italic_comments),
+        underline_links = to_bool(vim.g.nagisa_underline_links, defaults.underline_links),
+        disable_nvimtree_bg = to_bool(vim.g.nagisa_disable_nvim_tree_bg, defaults.disable_nvimtree_bg),
     }
 
     config.opts = vim.tbl_extend("force", {}, defaults, global_settings, user_opts or {})

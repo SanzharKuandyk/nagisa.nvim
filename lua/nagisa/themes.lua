@@ -105,8 +105,8 @@ local function setup(colors)
                 diff = {
                     add = colors.green,
                     delete = colors.red,
-                    change = colors.blueGrayDark,
-                    text = colors.back,
+                    change = colors.yellowOrange,
+                    text = colors.front,
                 },
                 diag = {
                     error = colors.error,

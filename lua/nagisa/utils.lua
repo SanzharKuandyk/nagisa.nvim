@@ -37,13 +37,20 @@ end
 ---@param highlights table<string, table>
 local function save_compiled_highlights(path, highlights)
     ensure_directory_exists(path)
-    local file = io.open(path, "w")
+    local file, err = io.open(path, "w")
 
-    if file then
+    if not file then
+        error(string.format("Could not open file for writing: %s\nError: %s", path, err or "unknown"))
+    end
+
+    local ok, write_err = pcall(function()
         file:write(serialize_highlights(highlights))
-        file:close()
-    else
-        error("Could not open file for writing: " .. path)
+    end)
+
+    file:close()
+
+    if not ok then
+        error(string.format("Failed to write highlights to %s\nError: %s", path, write_err or "unknown"))
     end
 end
 

@@ -1,8 +1,10 @@
 local M = {}
 
 ---@param theme Theme
+---@param opts NagisaConfig
 ---@return table highlights
-M.setup = function(theme, opts)
+function M.setup(theme, opts)
+    -- opts is required by highlights.init but not used in treesitter
     local highlights = {
         ["@error"] = { fg = theme.diag.error, bg = "NONE" },
         ["@punctuation.bracket"] = { fg = theme.ui.fg, bg = "NONE" },
@@ -49,7 +51,7 @@ M.setup = function(theme, opts)
         ["@keyword.return"] = { link = "@keyword" },
         ["@keyword.exception"] = { link = "@keyword" },
         ["@keyword.import"] = { link = "@keyword" },
-        ["@operator"] = { fg = theme.syn.keyword, bg = "NONE" },
+        ["@operator"] = { fg = theme.syn.operator, bg = "NONE" },
         ["@type"] = { fg = theme.syn.special1, bg = "NONE" },
         ["@type.qualifier"] = { link = "@type" },
         ["@structure"] = { fg = theme.syn.identifier, bg = "NONE" },

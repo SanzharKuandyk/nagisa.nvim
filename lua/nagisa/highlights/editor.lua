@@ -2,7 +2,7 @@ local M = {}
 
 ---@param theme Theme
 ---@return table highlights
-M.setup = function(theme, opts)
+function M.setup(theme, opts)
     opts = opts or require("nagisa.config").opts
 
     return {
@@ -38,7 +38,7 @@ M.setup = function(theme, opts)
 
         -- Popup menu highlights
         Pmenu = { fg = theme.ui.pmenu.main, bg = opts.transparent and "NONE" or theme.ui.bg },
-        PmenuSel = { fg = theme.ui.pmenu.sel, bg = opts.transparent and "NONE" or "NONE" },
+        PmenuSel = { fg = theme.ui.pmenu.sel, bg = "NONE" },
         PmenuSbar = { fg = "NONE", bg = opts.transparent and "NONE" or theme.ui.bg },
         PmenuThumb = { fg = "NONE", bg = opts.transparent and "NONE" or theme.ui.bg },
 

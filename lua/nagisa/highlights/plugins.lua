@@ -2,7 +2,7 @@ local M = {}
 
 ---@param theme Theme
 ---@return table highlights
-M.setup = function(theme, opts)
+function M.setup(theme, opts)
     opts = opts or require("nagisa.config").opts
 
     return {
@@ -169,7 +169,7 @@ M.setup = function(theme, opts)
         ["LSPSagaDiagnosticTruncateLine"] = { fg = theme.ui.cursor, bg = "NONE" },
         ["LspSagaDiagnosticBorder"] = { fg = theme.ui.border, bg = "NONE" },
         ["LspSagaShTruncateLine"] = { fg = theme.ui.cursor, bg = "NONE" },
-        ["LspSagaDothemeTruncateLine"] = { fg = theme.ui.cursor, bg = "NONE" },
+        ["LspSagaDocTruncateLine"] = { fg = theme.ui.cursor, bg = "NONE" },
         ["LspSagaRenameBorder"] = { fg = theme.ui.cursor, bg = "NONE" },
         ["LspSagaLspFinderBorder"] = { fg = theme.ui.cursor, bg = "NONE" },
 
@@ -183,7 +183,7 @@ M.setup = function(theme, opts)
         ["TelescopePromptPrefix"] = { fg = theme.ui.fg, bg = "NONE" },
 
         -- symbols-outline
-        ["FothemeusedSymbol"] = { fg = "#ffffff", bg = theme.ui.search },
+        ["FocusedSymbol"] = { fg = theme.ui.fg, bg = theme.ui.search },
         ["SymbolsOutlineConnector"] = { fg = theme.ui.cursor, bg = "NONE" },
     }
 end
