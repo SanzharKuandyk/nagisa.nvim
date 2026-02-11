@@ -11,7 +11,7 @@ local config = {}
 
 -- Default configuration
 local defaults = {
-    theme = "EndOfTheWorld",
+    theme = "Nagisa",
     transparent = false,
     italic_comments = false,
     underline_links = false,

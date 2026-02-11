@@ -1,9 +1,13 @@
 <div align="center">
   <h1>nagisa.nvim 🌠</h1>
-   <img src="sshot_1.png" alt="Screenshot of Nagisa theme"/>
+   <img src="nagisa.png" alt="Screenshot of Nagisa theme"/>
 </div>
 
-A clean and minimalist Neovim theme with a dark background and vibrant red-orange highlights.
+A clean and minimalist Neovim colorscheme collection with dark backgrounds and vibrant highlights.
+
+Ships with two themes:
+- **Nagisa** (default) — warm orange dark theme with sunset vibes
+- **EndOfTheWorld** — cold blue-black theme with vibrant red-orange highlights
 
 ### 🚧 Warning 🚧
 
@@ -32,7 +36,7 @@ use("sanzharkuandyk/nagisa.nvim")
   priority = 1000,
   config = function()
       require("nagisa").setup({})
-      vim.cmd.colorscheme("EndOfTheWorld")
+      vim.cmd.colorscheme("nagisa")
   end,
 },
 ```
@@ -40,10 +44,18 @@ use("sanzharkuandyk/nagisa.nvim")
 ### Colorscheme
 
 ```vim
+" Warm orange theme (default)
+colorscheme nagisa
+
+" Cold blue-black theme
 colorscheme EndOfTheWorld
 ```
 
-```vim
+```lua
+-- Warm orange theme (default)
+vim.cmd.colorscheme("nagisa")
+
+-- Cold blue-black theme
 vim.cmd.colorscheme("EndOfTheWorld")
 ```
 
@@ -60,7 +72,7 @@ vim.cmd.colorscheme("EndOfTheWorld")
 
 ```lua
 require("nagisa").setup({
-  theme = "EndOfTheWorld",
+  theme = "Nagisa", -- or "EndOfTheWorld"
   transparent = false,
   italic_comments = true,
   underline_links = true,

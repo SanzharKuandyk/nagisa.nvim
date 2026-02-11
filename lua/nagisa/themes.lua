@@ -61,6 +61,62 @@
 local function setup(colors)
     return {
         ---@return Theme
+        Nagisa = function()
+            return {
+                ui = {
+                    fg = colors.front,
+                    bg = colors.back,
+                    fg_dim = colors.grayMid,
+                    bg_dim = colors.grayDarkish,
+                    col = colors.grayVeryDark,
+                    border = colors.grayDark,
+                    search = colors.seaBlueDark,
+                    cursor = colors.grayMidDark,
+                    selection = colors.burntOrange,
+                    pmenu = {
+                        main = colors.grayLight,
+                        sel = colors.waveBlue,
+                    },
+                    statusline = colors.waveBlue,
+                    dir = colors.seaBlueBright,
+                },
+                syn = {
+                    string = colors.olive,
+                    number = colors.amber,
+                    variable = colors.seaBlueBright,
+                    constant = colors.burntOrange,
+                    identifier = colors.seaBlue,
+                    keyword = colors.coral,
+                    func = colors.waveBlue,
+                    comment = colors.gray,
+                    operator = colors.dustyRose,
+                    special1 = colors.seaBlue,
+                    special2 = colors.goldenYellow,
+                    special3 = colors.oliveDark,
+                },
+                vcs = {
+                    added = colors.olive,
+                    changed = colors.waveBlue,
+                    deleted = colors.redDark,
+                    addedLn = colors.oliveDark,
+                    changedLn = colors.seaBlueDark,
+                    deletedLn = colors.redDark,
+                },
+                diff = {
+                    add = colors.olive,
+                    delete = colors.warmError,
+                    change = colors.goldenYellow,
+                    text = colors.front,
+                },
+                diag = {
+                    error = colors.warmError,
+                    warning = colors.goldenYellow,
+                    info = colors.seaBlueBright,
+                },
+            }
+        end,
+
+        ---@return Theme
         EndOfTheWorld = function()
             return {
                 ui = {

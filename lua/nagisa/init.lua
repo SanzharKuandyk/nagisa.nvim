@@ -8,8 +8,14 @@ nagisa.state = {
 local function validate_theme(theme_name)
     local themes = require("nagisa.themes")
     local colors = require("nagisa.colors")
-    if not themes.setup(colors)[theme_name] then
-        error(string.format("Invalid theme '%s'. Available: EndOfTheWorld", theme_name))
+    local available = themes.setup(colors)
+    if not available[theme_name] then
+        local names = {}
+        for name in pairs(available) do
+            table.insert(names, name)
+        end
+        table.sort(names)
+        error(string.format("Invalid theme '%s'. Available: %s", theme_name, table.concat(names, ", ")))
     end
     return theme_name
 end
@@ -58,6 +64,9 @@ end
 
 -- User command to recompile
 vim.api.nvim_create_user_command("NagisaCompile", function()
+    local current_theme = nagisa.state.theme
+    local current_opts = config.opts
+
     for mod in pairs(package.loaded) do
         if mod:match("^nagisa") then
             package.loaded[mod] = nil
@@ -65,10 +74,9 @@ vim.api.nvim_create_user_command("NagisaCompile", function()
     end
 
     local fresh = require("nagisa")
-    fresh.setup(config.opts)
-    fresh.compile()
+    fresh.setup(current_opts)
     vim.notify("Nagisa compiled successfully!", vim.log.levels.INFO)
-    fresh.load(fresh.state.theme)
+    fresh.load(current_theme)
     vim.api.nvim_exec_autocmds("ColorScheme", { modeline = false })
 end, {})
 

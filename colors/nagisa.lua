@@ -1,0 +1,1 @@
+require('nagisa').load('Nagisa')

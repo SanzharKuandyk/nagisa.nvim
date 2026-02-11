@@ -50,6 +50,24 @@ local colors = {
 
     -- diagnostic
     error = "#DA1E37",
+
+    -- Orange accents (coral/burnt)
+    coral = "#FF7F50",
+    burntOrange = "#EC5800",
+    amber = "#FAAB36",
+
+    -- Sea/Ocean blues (fresh/liquid)
+    seaBlue = "#29AAB5",
+    seaBlueBright = "#48CAE4",
+    seaBlueDark = "#1A4050",
+    waveBlue = "#0096C7",
+
+    -- Supporting accents
+    olive = "#A9B665",
+    oliveDark = "#3D4220",
+    goldenYellow = "#D8A657",
+    dustyRose = "#D3869B",
+    warmError = "#E8534A",
 }
 
 return colors
