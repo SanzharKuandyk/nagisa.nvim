@@ -46,6 +46,7 @@ local colors = {
 
     -- Miscellaneous
     back = "#07090F",
+    floatBg = "#0E1119",
     front = "#e7e7e7",
 
     -- diagnostic

@@ -157,9 +157,9 @@ function M.setup(theme, opts)
         ["NeogitHunkHeader"] = { fg = theme.diag.warning, bg = theme.diff.delete },
         ["NeogitHunkHeaderHighlight"] = { fg = theme.diag.warning, bg = theme.ui.statusline },
 
-        ["LspFloatWinNormal"] = { fg = theme.ui.fg, bg = "NONE" },
-        ["LspFloatWinBorder"] = { fg = theme.ui.fg_dim, bg = "NONE" },
-        ["LspInfoBorder"] = { fg = theme.ui.fg_dim, bg = "NONE" },
+        ["LspFloatWinNormal"] = { link = "NormalFloat" },
+        ["LspFloatWinBorder"] = { link = "FloatBorder" },
+        ["LspInfoBorder"] = { link = "FloatBorder" },
         ["LspSagaHoverBorder"] = { fg = theme.ui.fg_dim, bg = "NONE" },
         ["LspSagaSignatureHelpBorder"] = { fg = theme.ui.fg_dim, bg = "NONE" },
         ["LspSagaCodeActionBorder"] = { fg = theme.ui.fg_dim, bg = "NONE" },

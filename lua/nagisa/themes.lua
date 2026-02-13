@@ -16,12 +16,18 @@
 ---@field cursor string
 ---@field selection string
 ---@field pmenu Pmenu
+---@field float Float
 ---@field statusline string
 ---@field dir string
 
 ---@class Pmenu
 ---@field main string
 ---@field sel string
+
+---@class Float
+---@field bg string
+---@field border string
+---@field title string
 
 ---@class SyntaxElements
 ---@field string string
@@ -76,6 +82,11 @@ local function setup(colors)
                     pmenu = {
                         main = colors.grayLight,
                         sel = colors.waveBlue,
+                    },
+                    float = {
+                        bg = colors.floatBg,
+                        border = colors.waveBlue,
+                        title = colors.seaBlueBright,
                     },
                     statusline = colors.waveBlue,
                     dir = colors.seaBlueBright,
@@ -132,6 +143,11 @@ local function setup(colors)
                     pmenu = {
                         main = colors.grayLight,
                         sel = colors.red,
+                    },
+                    float = {
+                        bg = colors.floatBg,
+                        border = colors.purpleDark,
+                        title = colors.pink,
                     },
                     statusline = colors.purpleDark,
                     dir = colors.accentBlue,

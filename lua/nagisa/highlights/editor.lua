@@ -36,6 +36,12 @@ function M.setup(theme, opts)
         Visual = { fg = "NONE", bg = theme.ui.bg_dim },
         IncSearch = { fg = "NONE", bg = theme.ui.search },
 
+        -- Floating window highlights
+        NormalFloat = { fg = theme.ui.fg, bg = opts.transparent and "NONE" or theme.ui.float.bg },
+        FloatBorder = { fg = theme.ui.float.border, bg = opts.transparent and "NONE" or theme.ui.float.bg },
+        FloatTitle = { fg = theme.ui.float.title, bg = opts.transparent and "NONE" or theme.ui.float.bg, bold = true },
+        FloatFooter = { fg = theme.ui.fg_dim, bg = opts.transparent and "NONE" or theme.ui.float.bg },
+
         -- Popup menu highlights
         Pmenu = { fg = theme.ui.pmenu.main, bg = opts.transparent and "NONE" or theme.ui.bg },
         PmenuSel = { fg = theme.ui.pmenu.sel, bg = "NONE" },
