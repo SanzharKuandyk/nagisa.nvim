@@ -75,6 +75,15 @@ vim.api.nvim_create_user_command("NagisaCompile", function()
 
     local fresh = require("nagisa")
     fresh.setup(current_opts)
+
+    local colors = require("nagisa.colors")
+    local themes = require("nagisa.themes")
+    local utils = require("nagisa.utils")
+    for theme_name in pairs(themes.setup(colors)) do
+        fresh.state.theme = theme_name
+        utils.compile(theme_name, current_opts, colors)
+    end
+
     vim.notify("Nagisa compiled successfully!", vim.log.levels.INFO)
     fresh.load(current_theme)
     vim.api.nvim_exec_autocmds("ColorScheme", { modeline = false })
