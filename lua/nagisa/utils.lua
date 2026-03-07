@@ -58,15 +58,16 @@ end
 ---@param opts NagisaConfig
 ---@param colors Colors
 function M.compile(theme_name, opts, colors)
+    local palette = vim.deepcopy(colors)
     local themes = require("nagisa.themes")
 
     if opts.color_overrides and next(opts.color_overrides) then
         for k, v in pairs(opts.color_overrides) do
-            colors[k] = v
+            palette[k] = v
         end
     end
 
-    local theme_data = themes.setup(colors)[theme_name]
+    local theme_data = themes.setup(palette)[theme_name]
     if not theme_data then
         error(("Theme '%s' not found in themes.lua"):format(theme_name))
     end

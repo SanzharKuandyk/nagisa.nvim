@@ -8,6 +8,10 @@ local config = {}
 ---@field color_overrides? table
 ---@field group_overrides? table
 ---@field disable_nvimtree_bg? boolean
+---@field compile? NagisaCompileConfig
+
+---@class NagisaCompileConfig
+---@field scope? 'all'|'current'
 
 -- Default configuration
 local defaults = {
@@ -18,6 +22,9 @@ local defaults = {
     color_overrides = {},
     group_overrides = {},
     disable_nvimtree_bg = true,
+    compile = {
+        scope = "current",
+    },
 }
 
 ---@type NagisaConfig
@@ -34,13 +41,16 @@ function config.setup(user_opts)
 
     local global_settings = {
         theme = vim.g.nagisa_theme or defaults.theme,
-        transparent = vim.g.nagisa_transparent or defaults.transparent,
+        transparent = to_bool(vim.g.nagisa_transparent, defaults.transparent),
         italic_comments = to_bool(vim.g.nagisa_italic_comment, defaults.italic_comments),
         underline_links = to_bool(vim.g.nagisa_underline_links, defaults.underline_links),
         disable_nvimtree_bg = to_bool(vim.g.nagisa_disable_nvim_tree_bg, defaults.disable_nvimtree_bg),
+        compile = {
+            scope = vim.g.nagisa_compile_scope or defaults.compile.scope,
+        },
     }
 
-    config.opts = vim.tbl_extend("force", {}, defaults, global_settings, user_opts or {})
+    config.opts = vim.tbl_deep_extend("force", {}, defaults, global_settings, user_opts or {})
     return config.opts
 end
 

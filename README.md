@@ -66,6 +66,23 @@ vim.cmd.colorscheme("EndOfTheWorld")
 " 2. Restart nvim
 " 3. Run this command:
 :NagisaCompile
+
+" Optional: compile only the active/configured theme
+:NagisaCompile current
+
+" Optional: compile every theme variant
+:NagisaCompile all
+```
+
+### Commands
+
+```vim
+" Toggle transparency
+:NagisaTransparent
+
+" Explicit transparency control
+:NagisaTransparent enable
+:NagisaTransparent disable
 ```
 
 ## ⚙️ Configuration
@@ -74,6 +91,9 @@ vim.cmd.colorscheme("EndOfTheWorld")
 require("nagisa").setup({
   theme = "Nagisa", -- or "EndOfTheWorld"
   transparent = false,
+  compile = {
+    scope = "all", -- or "current"
+  },
   italic_comments = true,
   underline_links = true,
   disable_nvimtree_bg = false,
