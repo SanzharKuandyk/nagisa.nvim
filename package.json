@@ -19,5 +19,9 @@
   },
   "dependencies": {
     "lint-staged": "^15.2.10"
+  },
+  "overrides": {
+    "picomatch": ">=2.3.2",
+    "yaml": ">=2.8.3"
   }
 }
