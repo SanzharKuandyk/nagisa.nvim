@@ -21,6 +21,16 @@ Author likes dark and red/orange mixed themes
 
 Download with your favorite package manager
 
+### vim.pkg (Neovim 0.12+)
+
+```lua
+-- In your init.lua
+vim.pkg.add("github:sanzharkuandyk/nagisa.nvim")
+
+require("nagisa").setup({})
+vim.cmd.colorscheme("nagisa")
+```
+
 ### packer.nvim
 
 ```lua
