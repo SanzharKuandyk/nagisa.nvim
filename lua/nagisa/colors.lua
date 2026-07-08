@@ -69,6 +69,15 @@ local colors = {
     goldenYellow = "#D8A657",
     dustyRose = "#D3869B",
     warmError = "#E8534A",
+
+    -- VCS and diff
+    gitAdd = "#73C991",
+    gitAddBg = "#0F2E20",
+    gitDelete = "#E36B5D",
+    gitDeleteBg = "#3F1618",
+    gitChange = "#4FB0D1",
+    gitChangeBg = "#163848",
+    gitTextBg = "#16212B",
 }
 
 return colors

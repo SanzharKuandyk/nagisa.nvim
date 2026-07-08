@@ -53,9 +53,13 @@
 
 ---@class DiffElements
 ---@field add string
+---@field add_bg string
 ---@field delete string
+---@field delete_bg string
 ---@field change string
+---@field change_bg string
 ---@field text string
+---@field text_bg string
 
 ---@class DiagnosticsElements
 ---@field error string
@@ -106,18 +110,22 @@ local function setup(colors)
                     special3 = colors.greenDark,
                 },
                 vcs = {
-                    added = colors.green,
-                    changed = colors.purple,
-                    deleted = colors.redDark,
-                    addedLn = colors.greenDark,
-                    changedLn = colors.purpleDark,
-                    deletedLn = colors.redDark,
+                    added = colors.gitAdd,
+                    changed = colors.gitChange,
+                    deleted = colors.gitDelete,
+                    addedLn = colors.gitAddBg,
+                    changedLn = colors.gitChangeBg,
+                    deletedLn = colors.gitDeleteBg,
                 },
                 diff = {
-                    add = colors.green,
-                    delete = colors.red,
-                    change = colors.yellowOrange,
+                    add = colors.gitAdd,
+                    add_bg = colors.gitAddBg,
+                    delete = colors.gitDelete,
+                    delete_bg = colors.gitDeleteBg,
+                    change = colors.gitChange,
+                    change_bg = colors.gitChangeBg,
                     text = colors.front,
+                    text_bg = colors.gitTextBg,
                 },
                 diag = {
                     error = colors.error,
@@ -167,18 +175,22 @@ local function setup(colors)
                     special3 = colors.greenDark,
                 },
                 vcs = {
-                    added = colors.green,
-                    changed = colors.purple,
-                    deleted = colors.redDark,
-                    addedLn = colors.greenDark,
-                    changedLn = colors.purpleDark,
-                    deletedLn = colors.redDark,
+                    added = colors.gitAdd,
+                    changed = colors.gitChange,
+                    deleted = colors.gitDelete,
+                    addedLn = colors.gitAddBg,
+                    changedLn = colors.gitChangeBg,
+                    deletedLn = colors.gitDeleteBg,
                 },
                 diff = {
-                    add = colors.green,
-                    delete = colors.red,
-                    change = colors.yellowOrange,
+                    add = colors.gitAdd,
+                    add_bg = colors.gitAddBg,
+                    delete = colors.gitDelete,
+                    delete_bg = colors.gitDeleteBg,
+                    change = colors.gitChange,
+                    change_bg = colors.gitChangeBg,
                     text = colors.front,
+                    text_bg = colors.gitTextBg,
                 },
                 diag = {
                     error = colors.error,

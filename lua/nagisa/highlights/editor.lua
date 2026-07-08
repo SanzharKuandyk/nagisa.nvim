@@ -20,10 +20,10 @@ function M.setup(theme, opts)
         VertSplit = { fg = theme.ui.bg_dim, bg = theme.ui.bg },
 
         -- Diff highlight groups
-        DiffAdd = { fg = theme.diff.add },
-        DiffDelete = { fg = theme.diff.delete },
-        DiffChange = { fg = theme.diff.change },
-        DiffText = { fg = theme.diff.text },
+        DiffAdd = { bg = theme.diff.add_bg },
+        DiffDelete = { bg = theme.diff.delete_bg },
+        DiffChange = { bg = theme.diff.change_bg },
+        DiffText = { fg = theme.diff.text, bg = theme.diff.text_bg },
 
         -- Diagnostic highlights
         DiagnosticError = { fg = theme.diag.error },
