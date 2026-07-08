@@ -176,10 +176,10 @@ local function setup(colors)
                 },
                 vcs = {
                     added = colors.gitAdd,
-                    changed = colors.gitChange,
+                    changed = colors.purple,
                     deleted = colors.gitDelete,
                     addedLn = colors.gitAddBg,
-                    changedLn = colors.gitChangeBg,
+                    changedLn = colors.purpleDark,
                     deletedLn = colors.gitDeleteBg,
                 },
                 diff = {
@@ -187,8 +187,8 @@ local function setup(colors)
                     add_bg = colors.gitAddBg,
                     delete = colors.gitDelete,
                     delete_bg = colors.gitDeleteBg,
-                    change = colors.gitChange,
-                    change_bg = colors.gitChangeBg,
+                    change = colors.purple,
+                    change_bg = colors.purpleDark,
                     text = colors.front,
                     text_bg = colors.gitTextBg,
                 },
