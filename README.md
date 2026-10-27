@@ -5,6 +5,8 @@
 
 A clean and minimalist Neovim colorscheme collection with dark backgrounds and vibrant highlights.
 
+Better to use with treesitter enabled.
+
 Ships with two themes:
 - **Nagisa** (default) — warm orange dark theme with sunset vibes
 - **EndOfTheWorld** — cold blue-black theme with vibrant red-orange highlights (author's personal choice, see [eow.png](eow.png))
